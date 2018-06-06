@@ -22,7 +22,7 @@
 			  		</div>
 
 			  		<div class="form-group {{ $errors->has('siswa_id') ? ' has-error' : '' }}">
-			  			<label class="control-label">Nama Siswa</label>	
+			  			<label class="control-label">Guru Pembimbing</label>	
 			  			<select name="siswa_id" class="form-control">
 			  				@foreach($mhs as $data)
 			  				<option value="{{ $data->id }}">{{ $data->nama }}</option>

@@ -69,7 +69,7 @@ class ArtikelController extends Controller
         $artikel = Artikel::findOrFail($id);
         return view('artikel.show',compact('artikel'));
     }
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

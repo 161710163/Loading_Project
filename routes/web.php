@@ -14,17 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('kelas','KelasController');
-Route::resource('siswa','SiswaController');
-Route::resource('eskul','EskulController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('cek', function () {
     return view('layouts.admin');
+});
+
+Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']],function(){
+Route::resource('kelas','KelasController');
+Route::resource('siswa','SiswaController');
+Route::resource('eskul','EskulController');
+Route::resource('artikel','ArtikelController');
+Route::resource('kategoriartikel','KategoriArtikelController');
 });
